@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PiTank Control</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #live-stream {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #controls {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px;
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+        }
+
+        button {
+            width: 80px;
+            height: 80px;
+            margin: 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>PiTank Control</h1>
+    <img id="live-stream" src="http://192.168.1.159:8000/stream.mjpg" alt="Live Stream">
+
+    <div id="controls">
+        <div class="group">
+            <div class="row">
+                <button onmousedown="startMotion('forward')" onmouseup="stopMotors()">Forward</button>
+            </div>
+            <div class="row">
+                <button onmousedown="startMotion('left')" onmouseup="stopMotors()">Left</button>
+                <button onmousedown="startMotion('stop')" onmouseup="stopMotors()">Stop</button>
+                <button onmousedown="startMotion('right')" onmouseup="stopMotors()">Right</button>
+            </div>
+            <div class="row">
+                <button onmousedown="startMotion('backward')" onmouseup="stopMotors()">Backward</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function sendCommand(command) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log(this.responseText);
+                }
+            };
+            xhttp.open("POST", "/control", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("command=" + command);
+        }
+
+        function startMotion(command) {
+            sendCommand(command);
+        }
+
+        function stopMotors() {
+            sendCommand('stop');
+        }
+    </script>
+</body>
+</html>

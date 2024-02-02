@@ -1,7 +1,6 @@
 # PiTank
-Raspberry Pi Zero2 Tank control
-
-![Image](/screenshot.PNG)
+Raspberry Pi Zero2 Tank control  
+<img src="screenshot.jpg" width="250"/>
 
 Raspberry Pi Zero 2 W used with L298N H motor controller and 2 simple geared motors.
 Raspberry Pi is powered by power bank, motors (L298N) are powered from 7.4V battery (from RC car) or other battery (6V and above).  
@@ -37,4 +36,8 @@ and activate service:
 ```
 sudo systemctl enable camera.service
 sudo systemctl start camera.service
+```
+And finally set crontab:
+```
+@reboot /path/to/your/PiTank.py
 ```

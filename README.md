@@ -11,6 +11,8 @@ IN2: GPIO22
 IN3: GPIO23
 IN4: GPIO24
 ```
+<img src="con.png" width="500"/>
+
 Python script is Python3 version.  
 HTML page is with PiCamera2 via external Python script.
 

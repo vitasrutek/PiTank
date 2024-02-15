@@ -5,6 +5,11 @@ Raspberry Pi Zero2 Tank control
 
 Raspberry Pi Zero 2 W used with L298N H motor controller and 2 simple geared motors.
 Raspberry Pi is powered by power bank, motors (L298N) are powered from 7.4V battery (from RC car) or other battery (6V and above).  
+There are two index.html - one for PC control and second for Mobile control (touch display). Just rename it by your wish to index.html.   
+To control PiTank you just visit IP address of device (eg. http://192.168.x.y). It runs on port 80.    
+
+You can set WiFi Access Point on device, so you can use it out of the range of Wifi router. Just run hotspot_on.sh and it will disconnect from WiFi and runs own. Then visit hostname.local (eg. raspberrypi.local) on connected WiFi AP.   
+
 Pins:
 ```
 IN1: GPIO17
@@ -42,5 +47,5 @@ sudo systemctl start camera.service
 ```
 And finally set crontab:
 ```
-@reboot /path/to/your/PiTank.py
+@reboot sudo python3 /path/to/your/PiTank.py
 ```

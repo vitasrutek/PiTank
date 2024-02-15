@@ -61,7 +61,7 @@ class RequestHandler(SimpleHTTPRequestHandler):
 
     def do_GET(self):
         if self.path == '/':
-            self.path = '/index7.html'
+            self.path = '/index.html'
         return SimpleHTTPRequestHandler.do_GET(self)
 
     def do_POST(self):
@@ -85,7 +85,7 @@ class RequestHandler(SimpleHTTPRequestHandler):
         self._set_response()
         self.wfile.write("Command received: {}".format(command).encode('utf-8'))
 
-def run(server_class=HTTPServer, handler_class=RequestHandler, port=8080):
+def run(server_class=HTTPServer, handler_class=RequestHandler, port=80):
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
     print('Starting httpd on port {}'.format(port))

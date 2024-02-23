@@ -49,3 +49,6 @@ And finally set crontab:
 ```
 @reboot sudo python3 /path/to/your/PiTank.py
 ```
+
+I used this print from timmiclark (https://www.thingiverse.com/thing:652851) and it looks like this.
+<img src="pitank.jpg" width="500"/>

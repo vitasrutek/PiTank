@@ -50,7 +50,7 @@
 </head>
 <body>
     <h1>PiTank Control</h1>
-    <img id="live-stream" src="http://raspberrypi.local:8000/stream.mjpg" alt="Live Stream">
+    <img id="live-stream" alt="Live Stream">
 
     <div id="controls">
         <div class="group">
@@ -69,6 +69,10 @@
     </div>
 
     <script>
+        var deviceAddress = window.location.hostname + ':8000';
+        var streamUrl = 'http://' + deviceAddress + '/stream.mjpg';
+        document.getElementById('live-stream').src = streamUrl;
+
         function sendCommand(command) {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {

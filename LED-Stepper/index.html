@@ -23,8 +23,9 @@
 
         .control-frame {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: center;
             margin-top: 20px;
         }
 
@@ -44,7 +45,6 @@
             display: flex;
             justify-content: center;
         }
-
         button {
             width: 80px;
             height: 80px;
@@ -125,24 +125,21 @@
         </div>
 
         <div class="control-group">
-        <label class="switch">
-            <input type="checkbox" id="ledSwitch" onchange="toggleLED()">
-            <span class="slider"></span>
-        </label>
-        <label for="ledSwitch">LED</label>
-        </div>
-
-        <div class="control-group">
-            <h2>Stepper Motor Control</h2>
+            <h2>Stepper</h2>
             <div class="row">
-                <button onclick="rotateMotor('up')">Up</button>
+                <button onclick="rotateMotor('up')">↑↑</button>
             </div>
             <div class="row">
-                <button onclick="rotateMotor('down')">Down</button>
+                <button onclick="rotateMotor('down')">↓↓</button>
+            </div>
+            <h2>LED</h2>
+            <label class="switch">
+                <input type="checkbox" id="ledSwitch" onchange="toggleLED()">
+                <span class="slider"></span>
+            </label>
             </div>
         </div>
     </div>
-
     <script>
         var deviceAddress = window.location.hostname + ':8000';
         var streamUrl = 'http://' + deviceAddress + '/stream.mjpg';

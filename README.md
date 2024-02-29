@@ -8,6 +8,11 @@ Raspberry Pi is powered by power bank, motors (L298N) are powered from 7.4V batt
 There are two index.html - one for PC control and second for Mobile control (touch display). Just rename it by your wish to index.html.   
 To control PiTank you just visit IP address of device (eg. http://192.168.x.y). It runs on port 80.    
 
+There are 2 folders. "Simple" is just for moving PiTank. "LED-Stepper" contains LED light via NeoPixel 8LED WS2812b stick and stepper motor for camera movement up and down. NeoPixel needs additional installation for:
+```
+sudo pip3 install rpi_ws281x adafruit-circuitpython-neopixel
+```
+
 You can set WiFi Access Point on device, so you can use it out of the range of Wifi router. Just run hotspot_on.sh and it will disconnect from WiFi and runs own. Then visit hostname.local (eg. raspberrypi.local) on connected WiFi AP.   
 
 Pins:
